@@ -1,0 +1,4 @@
+1) copy to /usr/local/bin
+2) type in .bashrc source initxtools
+Done. After open new terminal, will be ask wich version of xilinx tools must be prepare. 
+Note: if use petalinux instal into <toolsfolder>/petalinux/<version>/

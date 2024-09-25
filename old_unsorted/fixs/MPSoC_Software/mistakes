@@ -1,0 +1,22 @@
+********* Lab 6 **********
+WRONG: 2-1-3
+		Filesystem Packages > misc >....
+RIGHT: 2-1-3
+		Petalinux Package Groups > ...	
+		
+WRONG:4-1-1
+		[host] $ cd /media/xilinx/training/OpenAMP/lab/ZCU102
+RIGHT:4-1-1 
+		[host] $ cd /media/xilinx/training/Xen_make_image/lab/ZCU102
+		
+********* Lab 8 **********
+WRONG:5-3-1
+		Open addstaticfile.bb from /media/xilinx/yocto/lab....
+RIGHT:5-3-1 
+		Open addstaticfile.bb from /media/xilinx/traning/Yocto_project/lab....
+
+********* Lab 14 **********
+FIX:3-3-2 add Semicolon in end of watchdog node
+@watchdog{
+....
+};

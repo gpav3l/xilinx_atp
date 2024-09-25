@@ -1,0 +1,54 @@
+#!/bin/bash
+
+toolsFolderPath="/home/xilinx/Tools"
+
+userRequest=$1
+
+inputValid=0
+
+ARRAY=()
+
+echo "Avaible version is:"
+	for i in $(ls -d $toolsFolderPath/*)
+	do 
+		for j in $( ls -d $i/*.* 2>/dev/null)
+		do
+			listOfVersion=$(echo ${j##*/} | grep  -E '^[0-9]{4}.[0-9]')
+			if [[ $listOfVersion != "" ]]
+			then	
+				ARRAY+=( ${j##*/} )
+			fi	
+		done
+	done	
+	
+	echo "${ARRAY[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '
+	echo ""
+
+#While loop for enter version. Break if version number is valid
+while [ $inputValid == 0 ]
+do
+echo "Enter version of Xilinx tools:"; read userRequest
+
+for i in $(ls -d $toolsFolderPath/*)
+do 
+	for j in $( ls -d $i/*.* 2>/dev/null)
+	do
+		if [[ ${j##*/} == $userRequest ]]
+		then
+			inputValid=1
+			. $( ls $j/settings*.sh ) $j
+		fi
+	done
+	
+done
+
+if [[ $inputValid == 0 ]]
+then
+	if [[ $userRequest != "" ]] 
+	then 
+		echo -e "\e[31mVersion $userRequest not found in $toolsFolderPath\e[0m"	
+	fi
+fi
+done
+
+

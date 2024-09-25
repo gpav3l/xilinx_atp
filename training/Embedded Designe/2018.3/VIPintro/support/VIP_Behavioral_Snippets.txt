@@ -1,0 +1,18 @@
+
+---- cut and paste after line 16
+
+// ADD VIP API library and component database packages (1)
+// Import VIP API library and custom generated database definition packages
+import axi_vip_pkg::*;
+import VIP_demo_axi_vip_0_0_pkg::*;
+
+---- cut and paste after line 35
+
+  // Declare VIP Agent HERE (2)
+  VIP_demo_axi_vip_0_0_mst_t agent;
+
+---- cut and paste after line 72
+
+    // NEW (initialize) VIP agent HERE (3)
+    agent = new("master vip agent",DUT.VIP_demo_i.axi_vip_0.inst.IF);
+
